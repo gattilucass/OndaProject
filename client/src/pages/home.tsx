@@ -2,7 +2,6 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import MediaGallery from "@/components/MediaGallery";
-import TechnicalDetails from "@/components/TechnicalDetails";
 import Footer from "@/components/Footer";
 import PromptModal from "@/components/PromptModal";
 
@@ -25,7 +24,6 @@ export default function Home() {
         onSizeSelect={setSelectedSize}
       />
       <MediaGallery currentModel={currentModel} />
-      <TechnicalDetails />
       <Footer onOpenModal={() => setIsModalOpen(true)} />
       <PromptModal 
         isOpen={isModalOpen}
