@@ -52,7 +52,7 @@ export default function MediaGallery({ currentModel }: MediaGalleryProps) {
   return (
     <section className="py-24 bg-gradient-to-b from-white to-smoke">
       <div className="container mx-auto px-6">
-        <h3 className="font-playfair text-4xl font-bold text-center mb-16 animate-fade-in">
+        <h3 className="font-playfair text-4xl font-bold text-center mb-16 animate-fade-in text-black">
           Galería de Producto
         </h3>
         
@@ -123,7 +123,7 @@ export default function MediaGallery({ currentModel }: MediaGalleryProps) {
 
         {/* Images Section */}
         <div>
-          <h4 className="font-playfair text-2xl font-semibold text-center mb-8 text-charcoal">
+          <h4 className="font-playfair text-2xl font-semibold text-center mb-8 text-black">
             Detalles del Producto
           </h4>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
