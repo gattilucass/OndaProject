@@ -1,0 +1,120 @@
+Quiero que desarrolles una landing page profesional y elegante para una marca de moda ficticia. Esta web de una sola página debe simular una ficha de producto de una camisa diseñada con IA, combinando estética de e-commerce premium con storytelling visual.
+
+---
+
+💡 CONTEXTO GENERAL
+
+- La marca ficticia se llama **ONDA**.
+- El producto principal es una camisa amarilla con diseño, generada por IA.
+- El sitio debe mostrar a un modelo hombre y una modelo mujer usando esta prenda.
+- Cada modelo tendrá 3 videos cortos (de 3-4 segundos) y 3 imágenes estáticas.
+- Es un proyecto de portfolio creativo para la empresa DELFI IA.
+
+---
+
+📁 ESTRUCTURA DE ARCHIVOS (entregá en módulos separados):
+
+1. `index.html`
+2. `styles.css` (usa Tailwind CSS y si hace falta, añade clases personalizadas)
+3. `script.js` (interacciones: cambio de modelo, selección de talles, modal)
+4. Carpeta `/assets` para imágenes/videos que agregaré manualmente
+5. Web lista para deployar en Vercel tras ajustes en VS Code
+
+---
+
+🎨 ESTÉTICA & DISEÑO
+
+- **Diseño limpio, simétrico, elegante, estilo high fashion**
+- Paleta de color: blanco puro, negro carbón, gris humo suave y dorado desaturado como acento
+- Fuente principal: `Playfair Display` para títulos, `Inter` o `Plus Jakarta Sans` para textos
+- Uso de **Tailwind CSS** para layout + estilos refinados
+- Sombra sutil, glassmorphism opcional en cards
+- Transiciones suaves (`transition-all`, `ease-in-out`)
+- Interfaz completamente **responsive y mobile-first**
+
+---
+
+🔷 HEADER
+
+- Logo ficticio “ONDA” a la izquierda, en serif elegante
+- Menú minimalista (aunque no navega), a la derecha con íconos simples o texto
+- Header sticky, transparente al inicio y blanco con sombra sutil al hacer scroll
+
+---
+
+🔷 HERO SECTION / PRODUCT DISPLAY
+
+- Imagen o video de la modelo en grande, centrado
+- A la derecha (o abajo en mobile):
+  - **Título:** “ONDA / Yellow Edition”
+  - **Copy inspiracional según el modelo activo**:
+    - Mujer: _“Diseñada para fluir con vos. La ONDA Yellow Edition celebra lo cotidiano con elegancia y carácter.”_
+    - Hombre: _“Corte moderno, esencia clásica. La ONDA Yellow Edition combina actitud y estructura para destacar sin esfuerzo.”_
+  - Selector de talles: S, M, L, XL → diseño tipo toggle con animación sutil
+  - Botón principal: `Reservar diseño` (animado al pasar el mouse)
+  - Botón secundario: `Cambiar modelo` → toggle que alterna entre Hombre / Mujer
+  - Animación fade-in/fade-out al cambiar de modelo (CSS + JS)
+
+---
+
+🔷 GALERÍA MULTIMEDIA
+
+- Sección debajo del hero
+- 3 videos cortos (placeholder) en formato horizontal (16:9), autoplay loop sin controles
+- 3 imágenes estáticas con efecto de hover zoom + sombreado
+- Galería debe actualizarse automáticamente al cambiar de modelo (videos e imágenes diferentes para Hombre y Mujer)
+- Opcional: animaciones con fade o slide entre cambios
+
+---
+
+🔷 DETALLES TÉCNICOS (ABAJO DEL TODO)
+
+- Cards con íconos + texto:
+  - Material: “Algodón premium 100%”
+  - Lavado: “Lavar en frío - No centrifugar”
+  - Confección: “Diseño asistido por inteligencia artificial”
+
+- Tipografía clara y refinada, íconos SVG pequeños, alineados
+
+---
+
+🔷 FOOTER
+
+- Franja inferior con:
+  - Texto en pequeño: _“Este proyecto fue realizado por Lucas Gatti como ejercicio creativo para DELFI IA.”_
+  - Lista de herramientas usadas: “ChatGPT, VEO 3, ElevenLabs, Figma, Tailwind, Vercel”
+  - **Botón:** `Ver Prompts` que abre un modal elegante con fondo negro transparente y blur
+    - Modal: caja blanca centrada, texto scrollable con los prompts reales usados
+    - Botón cerrar (ícono ❌) en esquina superior derecha
+
+---
+
+📱 INTERACCIONES & UX
+
+- Transiciones suaves en hover y al hacer clic
+- Cambios de modelo y galería con animaciones suaves
+- Modal de prompts que aparece sobre fondo difuminado
+- Botones accesibles, legibles y visualmente jerárquicos
+- 100% responsive para mobile y desktop
+
+---
+
+📎 FUNCIONALIDADES JS
+
+- `toggleModel()` para cambiar entre hombre y mujer
+- `updateMedia(model)` para mostrar imágenes y videos correspondientes
+- `openPromptModal()` y `closePromptModal()` para el modal
+- Sistema básico de selección de talles (visual, sin lógica de carrito)
+
+---
+
+🎯 OBJETIVO
+
+Aunque es una demo, la web debe simular perfectamente una ficha de producto real de un e-commerce de moda de alta gama. Cada bloque debe estar bien cuidado visualmente, con detalles precisos, microanimaciones, y tipografía profesional.
+
+---
+
+🔧 CÓDIGO FINAL
+
+Entregá todo modularizado y comentado. Al final debería ser fácilmente editable en VS Code y deployable en Vercel tras subirlo a GitHub. Que se vea como una web de moda profesional, con atención al detalle, dirección de arte digital y coherencia visual.
+
