@@ -18,12 +18,12 @@ export default function Footer({ onOpenModal }: FooterProps) {
             <div className="inline-block">
               <div className="flex items-center justify-center space-x-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
                 <Sparkles className="w-5 h-5 text-gold" />
-                <span className="font-playfair text-lg font-semibold">Diseñado con IA</span>
+                <span className="font-playfair text-lg font-semibold text-white">Diseñado con IA</span>
                 <Sparkles className="w-5 h-5 text-gold" />
               </div>
             </div>
             
-            <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-200 max-w-2xl mx-auto leading-relaxed">
               Este proyecto fue realizado por <span className="text-gold font-semibold">Lucas Gatti</span> como ejercicio creativo para 
               <span className="text-white font-semibold"> DELFI IA</span>, combinando inteligencia artificial y diseño premium.
             </p>
@@ -42,7 +42,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                     {tool === 'Figma' && <Palette className="w-6 h-6 text-pink-400 group-hover:scale-110 transition-transform" />}
                     {tool === 'Tailwind' && <div className="w-6 h-6 bg-cyan-400 rounded group-hover:scale-110 transition-transform"></div>}
                     {tool === 'Vercel' && <div className="w-6 h-6 bg-white rounded-full group-hover:scale-110 transition-transform"></div>}
-                    <span className="text-xs font-medium text-gray-400 group-hover:text-white transition-colors">
+                    <span className="text-xs font-medium text-gray-200 group-hover:text-white transition-colors">
                       {tool}
                     </span>
                   </div>
@@ -55,7 +55,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
           <div className="pt-8">
             <Button 
               onClick={onOpenModal}
-              className="bg-gradient-to-r from-gold to-yellow-500 text-charcoal px-10 py-4 rounded-2xl font-inter font-bold text-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-gold/25 group"
+              className="bg-gradient-to-r from-gold to-yellow-500 text-black px-10 py-4 rounded-2xl font-inter font-bold text-lg hover:from-yellow-400 hover:to-gold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-gold/25 group"
             >
               <span className="flex items-center space-x-3">
                 <Sparkles className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
@@ -67,7 +67,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
 
           {/* Copyright */}
           <div className="pt-8 border-t border-white/10">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-300">
               © 2024 ONDA Fashion. Todos los derechos reservados. Proyecto educativo con fines demostrativos.
             </p>
           </div>

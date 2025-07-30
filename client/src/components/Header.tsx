@@ -21,7 +21,7 @@ export default function Header() {
     }`}>
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="brand">
-          <h1 className="font-playfair text-2xl md:text-3xl font-bold bg-gradient-to-r from-charcoal to-gray-600 bg-clip-text text-transparent hover:from-gold hover:to-yellow-600 transition-all duration-300 cursor-pointer">
+          <h1 className="font-playfair text-2xl md:text-3xl font-bold bg-gradient-to-r from-black to-charcoal bg-clip-text text-transparent hover:from-gold hover:to-yellow-600 transition-all duration-300 cursor-pointer">
             ONDA
           </h1>
         </div>

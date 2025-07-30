@@ -123,7 +123,7 @@ export default function MediaGallery({ currentModel }: MediaGalleryProps) {
 
         {/* Images Section */}
         <div>
-          <h4 className="font-playfair text-2xl font-semibold text-center mb-8">
+          <h4 className="font-playfair text-2xl font-semibold text-center mb-8 text-charcoal">
             Detalles del Producto
           </h4>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">

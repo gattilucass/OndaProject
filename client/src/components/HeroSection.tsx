@@ -55,12 +55,12 @@ export default function HeroSection({
                   COLECCIÓN AI
                 </div>
               </div>
-              <h2 className="font-playfair text-4xl md:text-6xl font-bold bg-gradient-to-r from-charcoal via-gray-700 to-charcoal bg-clip-text text-transparent leading-tight">
+              <h2 className="font-playfair text-4xl md:text-6xl font-bold bg-gradient-to-r from-charcoal via-black to-charcoal bg-clip-text text-transparent leading-tight">
                 ONDA / Yellow Edition
               </h2>
               
               {/* Dynamic Copy */}
-              <div className="text-xl leading-relaxed text-gray-700 animate-fade-in font-light">
+              <div className="text-xl leading-relaxed text-gray-800 animate-fade-in font-light">
                 <p className="italic">{content.copy}</p>
               </div>
             </div>
@@ -137,10 +137,10 @@ export default function HeroSection({
             <div className="pt-8 border-t border-gray-200">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-3xl font-playfair font-bold bg-gradient-to-r from-charcoal to-gray-600 bg-clip-text text-transparent">
+                  <div className="text-3xl font-playfair font-bold bg-gradient-to-r from-black to-charcoal bg-clip-text text-transparent">
                     $189.00
                   </div>
-                  <div className="text-sm text-gray-500 font-medium">Envío gratuito a todo el país</div>
+                  <div className="text-sm text-gray-600 font-medium">Envío gratuito a todo el país</div>
                 </div>
                 <div className="text-right">
                   <div className="inline-flex items-center space-x-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
