@@ -125,7 +125,7 @@ export default function HeroSection({
 
             {/* Action Button */}
             <div>
-              <Button className="w-full bg-gradient-to-r from-charcoal to-gray-800 text-white py-4 px-8 font-inter font-medium hover:shadow-2xl transition-all duration-300 rounded-2xl transform hover:-translate-y-1 hover:scale-[1.02] shadow-lg">
+              <Button className="w-full bg-gradient-to-r from-charcoal to-gray-800 text-black py-4 px-8 font-inter font-medium hover:shadow-2xl transition-all duration-300 rounded-2xl transform hover:-translate-y-1 hover:scale-[1.02] shadow-lg">
                 <span className="flex items-center justify-center space-x-2">
                   <span>Reservar Diseño</span>
                   <span className="text-gold">✨</span>
