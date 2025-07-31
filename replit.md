@@ -37,7 +37,8 @@ Preferred communication style: Simple, everyday language.
 - **Responsive Design**: Mobile-first approach with sophisticated animations and transitions
 
 ### Content Management
-- **Static Assets**: Product images and videos served from external sources (Unsplash placeholders)
+- **Video Integration**: Main product presentation with 3 vertical videos (9:16) per gender in hero section with navigation controls
+- **Photo Gallery**: Separate photo gallery section with 3 key visual images (9:16 vertical) per gender
 - **Dynamic Copy**: Context-aware product descriptions that change based on selected model
 - **Interactive Elements**: Hover effects, smooth transitions, and glassmorphism styling
 

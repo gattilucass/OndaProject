@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface HeroSectionProps {
   currentModel: 'female' | 'male';
@@ -14,35 +16,149 @@ export default function HeroSection({
   onSizeSelect 
 }: HeroSectionProps) {
   const sizes: ('S' | 'M' | 'L' | 'XL')[] = ['S', 'M', 'L', 'XL'];
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  // Reset video index when model changes
+  useEffect(() => {
+    setCurrentVideoIndex(0);
+  }, [currentModel]);
 
   const femaleContent = {
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000",
-    copy: "Diseñada para fluir con vos. La ONDA Yellow Edition celebra lo cotidiano con elegancia y carácter."
+    copy: "Diseñada para fluir con vos. La ONDA Yellow Edition celebra lo cotidiano con elegancia y carácter.",
+    videos: [
+      {
+        src: "path/to/female-video-1.mp4", // Replace with actual video path
+        thumbnail: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        title: "Video 1 - Mujer"
+      },
+      {
+        src: "path/to/female-video-2.mp4", // Replace with actual video path
+        thumbnail: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        title: "Video 2 - Mujer"
+      },
+      {
+        src: "path/to/female-video-3.mp4", // Replace with actual video path
+        thumbnail: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        title: "Video 3 - Mujer"
+      }
+    ]
   };
 
   const maleContent = {
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000",
-    copy: "Corte moderno, esencia clásica. La ONDA Yellow Edition combina actitud y estructura para destacar sin esfuerzo."
+    copy: "Corte moderno, esencia clásica. La ONDA Yellow Edition combina actitud y estructura para destacar sin esfuerzo.",
+    videos: [
+      {
+        src: "path/to/male-video-1.mp4", // Replace with actual video path
+        thumbnail: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        title: "Video 1 - Hombre"
+      },
+      {
+        src: "path/to/male-video-2.mp4", // Replace with actual video path
+        thumbnail: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        title: "Video 2 - Hombre"
+      },
+      {
+        src: "path/to/male-video-3.mp4", // Replace with actual video path
+        thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        title: "Video 3 - Hombre"
+      }
+    ]
   };
 
   const content = currentModel === 'female' ? femaleContent : maleContent;
+  const currentVideo = content.videos[currentVideoIndex];
+
+  const nextVideo = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % content.videos.length);
+  };
+
+  const prevVideo = () => {
+    setCurrentVideoIndex((prev) => (prev - 1 + content.videos.length) % content.videos.length);
+  };
 
   return (
     <section className="pt-20 min-h-screen bg-gradient-to-br from-white via-gray-50 to-smoke flex items-center">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
-          {/* Media Display */}
+          {/* Video Slideshow Display */}
           <div className="order-2 lg:order-1">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-gold/20 to-yellow-400/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-              <div className="relative aspect-[4/5] bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
-                <img 
-                  src={content.image}
-                  alt={`${currentModel} model wearing yellow ONDA shirt`} 
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Main Video Display - 9:16 aspect ratio */}
+              <div className="relative aspect-[9/16] bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 max-w-md mx-auto">
+                <video 
+                  src={currentVideo.src}
+                  poster={currentVideo.thumbnail}
+                  controls
+                  className="w-full h-full object-cover"
+                  key={currentVideoIndex}
+                >
+                  Su navegador no soporta videos HTML5.
+                </video>
+                
+                {/* Navigation Buttons */}
+                <button 
+                  onClick={prevVideo}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+                >
+                  <ChevronLeft className="w-4 h-4 text-charcoal" />
+                </button>
+                
+                <button 
+                  onClick={nextVideo}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+                >
+                  <ChevronRight className="w-4 h-4 text-charcoal" />
+                </button>
+
+                {/* Video Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                  {content.videos.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentVideoIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentVideoIndex 
+                          ? 'bg-gold shadow-lg' 
+                          : 'bg-white/60 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Video Title Overlay */}
+                <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-lg">
+                  <span className="font-inter text-xs font-medium">{currentVideo.title}</span>
+                </div>
+              </div>
+
+              {/* Video Thumbnails */}
+              <div className="flex justify-center space-x-2 mt-4">
+                {content.videos.map((video, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentVideoIndex(index)}
+                    className={`relative w-12 h-20 rounded-lg overflow-hidden transition-all duration-300 ${
+                      index === currentVideoIndex 
+                        ? 'ring-2 ring-gold shadow-lg scale-105' 
+                        : 'opacity-70 hover:opacity-100 hover:scale-105'
+                    }`}
+                  >
+                    <img 
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="absolute bottom-0 left-0 right-0">
+                      <span className="text-white text-xs font-medium bg-black/50 px-1 block text-center">
+                        {index + 1}
+                      </span>
+                    </div>
+                  </button>
+                ))}
               </div>
             </div>
           </div>
