@@ -1,6 +1,6 @@
 import express, { type Express } from "express";
 import fs from "fs";
-import path from "path";
+import path from "path"; // Importa el módulo 'path'
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
 import viteConfig from "../vite.config";
@@ -68,11 +68,18 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(import.meta.dirname, "public");
+  // CAMBIO CLAVE AQUÍ: Usamos process.cwd() para construir la ruta, 
+  // ya que a menudo es la forma más fiable en entornos Serverless como Vercel.
+  const distPath = path.join(process.cwd(), "public");
+
+  // Añadimos logging para depuración en Vercel
+  log(`Attempting to serve static files from: ${distPath}`, "serveStatic");
 
   if (!fs.existsSync(distPath)) {
+    // Si la ruta es incorrecta, este log aparecerá en Vercel
+    log(`ERROR: Static directory not found at: ${distPath}`, "serveStatic");
     throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
+      `Could not find the client build directory at: ${distPath}. Please check Vercel build output and 'includeFiles' in vercel.json.`
     );
   }
 
