@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Code, Palette } from "lucide-react";
+import { Sparkles, Code, MessageSquare, Video, Film, Play } from "lucide-react"; // Importamos nuevos íconos
 
 interface FooterProps {
   onOpenModal: () => void;
 }
 
 export default function Footer({ onOpenModal }: FooterProps) {
-  const tools = ['ChatGPT', 'VEO 3', 'ElevenLabs', 'Figma', 'Tailwind', 'Vercel'];
+  // Lista de herramientas actualizada según tu indicación y original
+  const tools = ['ChatGPT', 'VEO 3', 'PIKA AI', 'REVE AI', 'KLING AI', 'GEMINI'];
 
   return (
     <footer className="bg-white py-20">
@@ -14,12 +15,12 @@ export default function Footer({ onOpenModal }: FooterProps) {
         <div className="text-center space-y-10">
           
           {/* Main Content */}
-          <div className="space-y-6">
+          <div className="space-y-2">
             <div className="inline-block">
               <div className="flex items-center justify-center space-x-3 bg-gold/10 backdrop-blur-sm px-6 py-3 rounded-full">
-                <Sparkles className="w-5 h-5 text-gold" />
+                <Sparkles className="w-7 h-7 text-gold" />
                 <span className="font-playfair text-lg font-semibold text-black">Diseñado con IA</span>
-                <Sparkles className="w-5 h-5 text-gold" />
+                <Sparkles className="w-7 h-7 text-gold" />
               </div>
             </div>
             
@@ -28,7 +29,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
               <span className="text-black font-semibold"> DELFI IA</span>, combinando inteligencia artificial y diseño premium.
             </p>
             
-            {/* Tools Grid */}
+            {/* Tools Grid - Íconos distintos para cada herramienta */}
             <div className="grid grid-cols-2 md:grid-cols-6 gap-4 max-w-3xl mx-auto">
               {tools.map((tool, index) => (
                 <div 
@@ -36,10 +37,13 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   className="bg-gray-50 border border-gray-200 rounded-2xl p-4 hover:bg-gray-100 hover:border-gold/30 transition-all duration-300 transform hover:scale-105 group"
                 >
                   <div className="flex flex-col items-center space-y-2">
-                    {tool === 'ChatGPT' && <Code className="w-6 h-6 text-green-500 group-hover:scale-110 transition-transform" />}
+                    {tool === 'ChatGPT' && <MessageSquare className="w-6 h-6 text-green-500 group-hover:scale-110 transition-transform" />}
                     {tool === 'VEO 3' && <Sparkles className="w-6 h-6 text-purple-500 group-hover:scale-110 transition-transform" />}
-                    {tool === 'ElevenLabs' && <div className="w-6 h-6 bg-orange-500 rounded-full group-hover:scale-110 transition-transform"></div>}
-                    {tool === 'Figma' && <Palette className="w-6 h-6 text-pink-500 group-hover:scale-110 transition-transform" />}
+                    {tool === 'PIKA AI' && <Video className="w-6 h-6 text-red-500 group-hover:scale-110 transition-transform" />}
+                    {tool === 'REVE AI' && <Film className="w-6 h-6 text-blue-500 group-hover:scale-110 transition-transform" />}
+                    {tool === 'KLING AI' && <Play className="w-6 h-6 text-orange-500 group-hover:scale-110 transition-transform" />}
+                    {tool === 'GEMINI' && <Sparkles className="w-6 h-6 text-teal-500 group-hover:scale-110 transition-transform" />}
+                    {/* Mantengo Tailwind y Vercel en la lógica de íconos por si decides agregarlos en el futuro, aunque no estén en la lista actual de `tools`. */}
                     {tool === 'Tailwind' && <div className="w-6 h-6 bg-cyan-500 rounded group-hover:scale-110 transition-transform"></div>}
                     {tool === 'Vercel' && <div className="w-6 h-6 bg-black rounded-full group-hover:scale-110 transition-transform"></div>}
                     <span className="text-xs font-medium text-black group-hover:text-gold transition-colors">

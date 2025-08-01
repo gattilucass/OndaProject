@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface HeroSectionProps {
@@ -27,18 +27,18 @@ export default function HeroSection({
     copy: "Diseñada para fluir con vos. La ONDA Yellow Edition celebra lo cotidiano con elegancia y carácter.",
     videos: [
       {
-        src: "path/to/female-video-1.mp4", // Replace with actual video path
-        thumbnail: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        src: "/assets/videos/Mujervideo.mp4", // RUTA ACTUALIZADA
+        thumbnail: "/assets/videos/Mujervideo.mp4", // Usar el propio video como thumbnail si no hay una imagen específica
         title: "Video 1 - Mujer"
       },
       {
-        src: "path/to/female-video-2.mp4", // Replace with actual video path
-        thumbnail: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        src: "/assets/videos/Videomujer.mp4", // RUTA ACTUALIZADA
+        thumbnail: "/assets/videos/Videomujer.mp4", // Usar el propio video como thumbnail
         title: "Video 2 - Mujer"
       },
       {
-        src: "path/to/female-video-3.mp4", // Replace with actual video path
-        thumbnail: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        src: "/assets/videos/Mujervideo3.mp4", // RUTA ACTUALIZADA
+        thumbnail: "/assets/videos/Mujervideo3.mp4", // Usar el propio video como thumbnail
         title: "Video 3 - Mujer"
       }
     ]
@@ -48,18 +48,18 @@ export default function HeroSection({
     copy: "Corte moderno, esencia clásica. La ONDA Yellow Edition combina actitud y estructura para destacar sin esfuerzo.",
     videos: [
       {
-        src: "path/to/male-video-1.mp4", // Replace with actual video path
-        thumbnail: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        src: "/assets/videos/Videohombre1.mp4", // RUTA ACTUALIZADA
+        thumbnail: "/assets/videos/Videohombre1.mp4", // Usar el propio video como thumbnail
         title: "Video 1 - Hombre"
       },
       {
-        src: "path/to/male-video-2.mp4", // Replace with actual video path
-        thumbnail: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        src: "/assets/videos/Videohombre2.mp4", // RUTA ACTUALIZADA
+        thumbnail: "/assets/videos/Videohombre2.mp4", // Usar el propio video como thumbnail
         title: "Video 2 - Hombre"
       },
       {
-        src: "path/to/male-video-3.mp4", // Replace with actual video path
-        thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=711",
+        src: "/assets/videos/Videohombre3.mp4", // RUTA ACTUALIZADA
+        thumbnail: "/assets/videos/Videohombre3.mp4", // Usar el propio video como thumbnail
         title: "Video 3 - Hombre"
       }
     ]
@@ -87,41 +87,44 @@ export default function HeroSection({
               <div className="absolute -inset-4 bg-gradient-to-r from-gold/20 to-yellow-400/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               
               {/* Main Video Display - 9:16 aspect ratio */}
-              <div className="relative aspect-[9/16] bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 max-w-md mx-auto">
-                <video 
+              <div className="relative aspect-[9/16] bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 max-w-md mx-auto">
+                <video
                   src={currentVideo.src}
                   poster={currentVideo.thumbnail}
                   controls
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   key={currentVideoIndex}
+                  autoPlay // Añadido el atributo autoplay
+                  loop     // Añadido el atributo loop para que se repita
+                  muted    // Añadido el atributo muted para que inicie sin sonido
                 >
                   Su navegador no soporta videos HTML5.
                 </video>
                 
                 {/* Navigation Buttons */}
-                <button 
+                <button
                   onClick={prevVideo}
                   className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:scale-110"
                 >
                   <ChevronLeft className="w-4 h-4 text-charcoal" />
                 </button>
                 
-                <button 
+                <button
                   onClick={nextVideo}
                   className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:scale-110"
                 >
                   <ChevronRight className="w-4 h-4 text-charcoal" />
                 </button>
 
-                {/* Video Indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                {/* Video Indicators - Posición ajustada y z-index agregado */}
+                <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
                   {content.videos.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentVideoIndex(index)}
                       className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentVideoIndex 
-                          ? 'bg-gold shadow-lg' 
+                        index === currentVideoIndex
+                          ? 'bg-gold shadow-lg'
                           : 'bg-white/60 hover:bg-white/80'
                       }`}
                     />
@@ -134,32 +137,7 @@ export default function HeroSection({
                 </div>
               </div>
 
-              {/* Video Thumbnails */}
-              <div className="flex justify-center space-x-2 mt-4">
-                {content.videos.map((video, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentVideoIndex(index)}
-                    className={`relative w-12 h-20 rounded-lg overflow-hidden transition-all duration-300 ${
-                      index === currentVideoIndex 
-                        ? 'ring-2 ring-gold shadow-lg scale-105' 
-                        : 'opacity-70 hover:opacity-100 hover:scale-105'
-                    }`}
-                  >
-                    <img 
-                      src={video.thumbnail}
-                      alt={video.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="absolute bottom-0 left-0 right-0">
-                      <span className="text-white text-xs font-medium bg-black/50 px-1 block text-center">
-                        {index + 1}
-                      </span>
-                    </div>
-                  </button>
-                ))}
-              </div>
+              {/* Bloque de Miniaturas de Videos ELIMINADO */}
             </div>
           </div>
 
